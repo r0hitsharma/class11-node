@@ -21,8 +21,26 @@ mealsRouter.get('/', (req, res) => {
   });
 });
 
+class Meal {
+    constructor(mealObj){
+        if(!mealObj.title)
+            throw "Meals need to have title";
+        else
+            this.title = mealObj.title;
+    }
+}
+
 mealsRouter.post('/', (req, res) => {
-  const meal = req.body;
+    // let meal;
+    // console.log(req.body);
+    // try{
+    //     meal = new Meal(req.body);
+    // } catch (e) {
+    //     return res.json({
+    //         error: e
+    //     });
+    // }
+    const meal = req.body;
 
   // log the meal for debugging
   console.log('meal:', meal);
